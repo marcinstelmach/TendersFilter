@@ -1,4 +1,4 @@
-﻿using FilterTenders.Application.Queries;
+﻿using FilterTenders.Application;
 
 namespace FilterTenders.Api.ViewModels;
 

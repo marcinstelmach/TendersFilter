@@ -1,5 +1,4 @@
 ﻿using Filters.Tenders.Core;
-using FilterTenders.Application.Queries;
 
 namespace FilterTenders.Application;
 
@@ -20,7 +19,34 @@ public class TendersService : ITendersService
         var specification = _tendersSpecificationBuilder.BuildTenderSpecification(query);
 
         tenders = tenders.Where(specification.ToExpression().Compile());
-        
+        tenders = ApplyOrdering(query, tenders);
+
+        return tenders;
+    }
+
+    private static IEnumerable<Tender> ApplyOrdering(GetTendersQuery query, IEnumerable<Tender> tenders) // move out it its own file and abstraction for isolate testing
+    {
+        // If we would have more than two parameters, then it would be sufficient to use https://dynamic-linq.net/
+        switch (query.OrderType)
+        {
+            case OrderType.Asc:
+                tenders = query.OrderBy switch
+                {
+                    OrderBy.Date => tenders.OrderBy(x => x.Date),
+                    OrderBy.PriceInEuro => tenders.OrderBy(x => x.AmountInEuro),
+                    _ => tenders
+                };
+                break;
+            case OrderType.Desc:
+                tenders = query.OrderBy switch
+                {
+                    OrderBy.Date => tenders.OrderByDescending(x => x.Date),
+                    OrderBy.PriceInEuro => tenders.OrderByDescending(x => x.AmountInEuro),
+                    _ => tenders
+                };
+                break;
+        }
+
         return tenders;
     }
 }

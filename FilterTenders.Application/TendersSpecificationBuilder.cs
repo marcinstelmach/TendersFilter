@@ -2,7 +2,12 @@
 using Filters.Tenders.Core.Specifications;
 using Filters.Tenders.Core.Specifications.BuildingBlocks;
 
-namespace FilterTenders.Application.Queries;
+namespace FilterTenders.Application;
+
+public interface ITendersSpecificationBuilder
+{
+    public Specification<Tender> BuildTenderSpecification(GetTendersQuery query);
+}
 
 public class TendersSpecificationBuilder : ITendersSpecificationBuilder
 {

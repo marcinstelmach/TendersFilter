@@ -1,4 +1,4 @@
-﻿namespace FilterTenders.Application.Queries;
+﻿namespace FilterTenders.Application;
 
 public class GetTendersQuery
 {

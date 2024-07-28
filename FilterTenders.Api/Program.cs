@@ -2,7 +2,6 @@ using System.Text.Json.Serialization;
 using FilterTenders.Api;
 using FilterTenders.Api.ViewModels;
 using FilterTenders.Application;
-using FilterTenders.Application.Queries;
 using Microsoft.AspNetCore.Http.Json;
 
 var builder = WebApplication.CreateBuilder(args);

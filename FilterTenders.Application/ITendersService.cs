@@ -1,5 +1,4 @@
 ﻿using Filters.Tenders.Core;
-using FilterTenders.Application.Queries;
 
 namespace FilterTenders.Application;
 

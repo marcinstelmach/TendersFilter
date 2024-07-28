@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace Filters.Tenders.Core;
+﻿namespace Filters.Tenders.Core;
 
 public class Tender
 {

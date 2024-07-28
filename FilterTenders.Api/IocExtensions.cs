@@ -1,6 +1,5 @@
 ﻿using Filters.Tenders.Core;
 using FilterTenders.Application;
-using FilterTenders.Application.Queries;
 using FilterTenders.Infrastructure;
 
 namespace FilterTenders.Api;
