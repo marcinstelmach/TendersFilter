@@ -1,6 +1,6 @@
-﻿namespace FilterTenders.Api.ViewModels;
+﻿namespace FilterTenders.Application.Dtos;
 
-public class PaginatedListViewModel<T>
+public class PaginatedResponseListDto<TType>
 {
     public required int PageNumber { get; init; }
     
@@ -10,5 +10,5 @@ public class PaginatedListViewModel<T>
     
     public required int TotalCount { get; init; }
     
-    public required IEnumerable<T> Data { get; init; }
+    public required TType[] Data { get; init; }
 }

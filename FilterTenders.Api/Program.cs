@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 using FilterTenders.Api;
-using FilterTenders.Api.ViewModels;
+using FilterTenders.Api.Filters;
 using FilterTenders.Application;
 using Microsoft.AspNetCore.Http.Json;
 
@@ -15,6 +15,8 @@ app.UseHttpsRedirection();
 
 app.MapGet("api/tenders", async ([AsParameters] GetTendersQuery request, ITendersService tendersService) =>
 {
+    // wrap response in view model
+    // return Ok
     return await tendersService.GetTendersAsync(request);
 }).AddEndpointFilter<GetTendersQueryFilter>();
 

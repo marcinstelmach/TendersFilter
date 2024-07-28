@@ -1,52 +1,43 @@
 ﻿using Filters.Tenders.Core;
+using FilterTenders.Application.Dtos;
 
 namespace FilterTenders.Application;
 
 public class TendersService : ITendersService
 {
     private readonly ITendersRepository _tendersRepository;
-    private readonly ITendersSpecificationBuilder _tendersSpecificationBuilder;
+    private readonly IGetTendersQueryBuilder _getTendersQueryBuilder;
 
-    public TendersService(ITendersRepository tendersRepository, ITendersSpecificationBuilder tendersSpecificationBuilder)
+    public TendersService(ITendersRepository tendersRepository, IGetTendersQueryBuilder getTendersQueryBuilder)
     {
         _tendersRepository = tendersRepository;
-        _tendersSpecificationBuilder = tendersSpecificationBuilder;
+        _getTendersQueryBuilder = getTendersQueryBuilder;
     }
 
-    public async Task<IEnumerable<Tender>> GetTendersAsync(GetTendersQuery query)
+    public async Task<PaginatedResponseListDto<Tender>> GetTendersAsync(GetTendersQuery query)
     {
+        var pageSize = query.PageSize ?? 100;
+        var pageNumber = query.PageNumber ?? 1;
+        
+        var specification = _getTendersQueryBuilder.BuildTSpecificationForQuery(query);
+
         var tenders = await _tendersRepository.GetTendersAsync();
-        var specification = _tendersSpecificationBuilder.BuildTenderSpecification(query);
+        var totalCount = tenders.Count;
+        var pagesCount = totalCount / pageSize;
 
-        tenders = tenders.Where(specification.ToExpression().Compile());
-        tenders = ApplyOrdering(query, tenders);
-
-        return tenders;
-    }
-
-    private static IEnumerable<Tender> ApplyOrdering(GetTendersQuery query, IEnumerable<Tender> tenders) // move out it its own file and abstraction for isolate testing
-    {
-        // If we would have more than two parameters, then it would be sufficient to use https://dynamic-linq.net/
-        switch (query.OrderType)
+        var enumerableTenders = tenders.Where(specification.ToExpression().Compile());
+        enumerableTenders = _getTendersQueryBuilder.ApplyOrdering(query, enumerableTenders);
+        enumerableTenders = enumerableTenders
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize);
+        
+        return new PaginatedResponseListDto<Tender>
         {
-            case OrderType.Asc:
-                tenders = query.OrderBy switch
-                {
-                    OrderBy.Date => tenders.OrderBy(x => x.Date),
-                    OrderBy.PriceInEuro => tenders.OrderBy(x => x.AmountInEuro),
-                    _ => tenders
-                };
-                break;
-            case OrderType.Desc:
-                tenders = query.OrderBy switch
-                {
-                    OrderBy.Date => tenders.OrderByDescending(x => x.Date),
-                    OrderBy.PriceInEuro => tenders.OrderByDescending(x => x.AmountInEuro),
-                    _ => tenders
-                };
-                break;
-        }
-
-        return tenders;
+            PageCount = pagesCount,
+            PageNumber = pageNumber,
+            PageSize = pageSize,
+            TotalCount = totalCount,
+            Data = enumerableTenders.ToArray()
+        };
     }
 }

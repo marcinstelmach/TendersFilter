@@ -26,7 +26,7 @@ public static class IocExtensions
     {
         services.AddScoped<ITendersRepository, TendersRepository>();
         services.AddTransient<ITendersService, TendersService>();
-        services.AddTransient<ITendersSpecificationBuilder, TendersSpecificationBuilder>();
+        services.AddTransient<IGetTendersQueryBuilder, GetTendersQueryBuilder>();
 
         return services;
     }
