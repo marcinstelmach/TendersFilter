@@ -1,6 +1,15 @@
 @FilterTenders.Api_HostAddress = https://localhost:44371
 
-GET {{FilterTenders.Api_HostAddress}}/api/tenders/
+GET {{FilterTenders.Api_HostAddress}}/api/tenders?
+    FilterByPriceInEuro=805.41&
+    FilterById=560564&
+    FilterByDate=2021-07-02T00:00:00&
+    FilterBySupplierId=28415&
+    OrderBy=PriceInEuro&
+    OrderType=Desc&
+    PageSize=100&
+    PageNumber=1
+
 Accept: application/json
 
 ###

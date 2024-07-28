@@ -2,11 +2,11 @@
 
 namespace FilterTenders.Api.Filters;
 
-public class GetTendersQueryFilter : IEndpointFilter
+public class GetTendersRequestFilter : IEndpointFilter
 {
     public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
     {
-        var query = context.GetArgument<GetTendersQuery>(0);
+        var query = context.GetArgument<GetTendersRequest>(0);
         var validationError = query.Validate();
         if (!string.IsNullOrWhiteSpace(validationError))
         {

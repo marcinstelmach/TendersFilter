@@ -5,5 +5,5 @@ namespace FilterTenders.Application;
 
 public interface ITendersService
 {
-    public Task<PaginatedResponseListDto<Tender>> GetTendersAsync(GetTendersQuery query);
+    public Task<PaginatedResponse<Tender>> GetTendersAsync(GetTendersRequest request);
 }

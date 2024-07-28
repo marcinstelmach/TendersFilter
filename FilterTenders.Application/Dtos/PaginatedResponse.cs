@@ -1,6 +1,6 @@
 ﻿namespace FilterTenders.Application.Dtos;
 
-public class PaginatedResponseListDto<TType>
+public class PaginatedResponse<TType>
 {
     public required int PageNumber { get; init; }
 
