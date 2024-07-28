@@ -21,23 +21,21 @@ public class TendersService : ITendersService
         
         var specification = _getTendersQueryBuilder.BuildTSpecificationForQuery(query);
 
-        var tenders = await _tendersRepository.GetTendersAsync();
-        var totalCount = tenders.Count;
-        var pagesCount = totalCount / pageSize;
+        var tenders = (await _tendersRepository.GetTendersAsync())
+            .Where(specification.ToExpression().Compile());
+        var totalCount = tenders.Count();
 
-        var enumerableTenders = tenders.Where(specification.ToExpression().Compile());
-        enumerableTenders = _getTendersQueryBuilder.ApplyOrdering(query, enumerableTenders);
-        enumerableTenders = enumerableTenders
+        tenders = _getTendersQueryBuilder.ApplyOrdering(query, tenders);
+        tenders = tenders
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize);
         
         return new PaginatedResponseListDto<Tender>
         {
-            PageCount = pagesCount,
             PageNumber = pageNumber,
             PageSize = pageSize,
             TotalCount = totalCount,
-            Data = enumerableTenders.ToArray()
+            Data = tenders.ToArray()
         };
     }
 }
