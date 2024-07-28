@@ -12,7 +12,7 @@ public class TendersRepository : ITendersRepository
         _httpClient = httpClientFactory.CreateClient("TendersApi");
     }
 
-    public async Task<ICollection<Tender>> GetTendersAsync()
+    public async Task<IEnumerable<Tender>> GetTendersAsync()
     {
         const int pageSize = 100;
         const int pagesCountToFetch = 1; // change to 100

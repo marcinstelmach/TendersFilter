@@ -1,5 +1,6 @@
 ﻿using Filters.Tenders.Core;
 using FilterTenders.Application;
+using FilterTenders.Application.Queries;
 using FilterTenders.Infrastructure;
 
 namespace FilterTenders.Api;
@@ -26,6 +27,7 @@ public static class IocExtensions
     {
         services.AddScoped<ITendersRepository, TendersRepository>();
         services.AddTransient<ITendersService, TendersService>();
+        services.AddTransient<ITendersSpecificationBuilder, TendersSpecificationBuilder>();
 
         return services;
     }

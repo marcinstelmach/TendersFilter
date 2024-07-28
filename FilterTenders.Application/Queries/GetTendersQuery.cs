@@ -1,6 +1,6 @@
-﻿namespace FilterTenders.Api.ViewModels;
+﻿namespace FilterTenders.Application.Queries;
 
-public class GetTendersRequest
+public class GetTendersQuery
 {
     // Filter by
     public decimal? FilterByPriceInEuro { get; init; }
@@ -10,10 +10,8 @@ public class GetTendersRequest
     
     // Order by PriceInEuro | Date | 
     public OrderBy? OrderBy { get; init; } 
-    public OrderType? OrderType { get; init; } // Validate, OrderType can be only when OrderBy provided
+    public OrderType? OrderType { get; init; }
 }
-
-
 
 public enum OrderBy
 {

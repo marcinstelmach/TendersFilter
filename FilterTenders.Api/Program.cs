@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using FilterTenders.Api;
 using FilterTenders.Api.ViewModels;
 using FilterTenders.Application;
+using FilterTenders.Application.Queries;
 using Microsoft.AspNetCore.Http.Json;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,9 +14,9 @@ builder.Services.Configure<JsonOptions>(options => options.SerializerOptions.Con
 var app = builder.Build();
 app.UseHttpsRedirection();
 
-app.MapGet("api/tenders", async ([AsParameters] GetTendersRequest request, ITendersService tendersService) =>
+app.MapGet("api/tenders", async ([AsParameters] GetTendersQuery request, ITendersService tendersService) =>
 {
-    return await tendersService.GetTendersAsync();
-}).AddEndpointFilter<TendersRequestFilter>();
+    return await tendersService.GetTendersAsync(request);
+}).AddEndpointFilter<GetTendersQueryFilter>();
 
 app.Run();

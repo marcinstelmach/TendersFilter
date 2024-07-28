@@ -1,10 +1,12 @@
-﻿namespace FilterTenders.Api.ViewModels;
+﻿using FilterTenders.Application.Queries;
 
-public class TendersRequestFilter : IEndpointFilter
+namespace FilterTenders.Api.ViewModels;
+
+public class GetTendersQueryFilter : IEndpointFilter
 {
     public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
     {
-        var request = context.GetArgument<GetTendersRequest>(0);
+        var request = context.GetArgument<GetTendersQuery>(0);
 
         if (request.OrderType is not null && request.OrderBy is null)
         {
