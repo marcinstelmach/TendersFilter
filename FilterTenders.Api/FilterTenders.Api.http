@@ -1,0 +1,6 @@
+@FilterTenders.Api_HostAddress = https://localhost:44371
+
+GET {{FilterTenders.Api_HostAddress}}/api/tenders/
+Accept: application/json
+
+###
