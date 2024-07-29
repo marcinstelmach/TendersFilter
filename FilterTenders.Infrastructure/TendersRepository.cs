@@ -12,10 +12,10 @@ public class TendersRepository : ITendersRepository
         _tendersClient = tendersClient;
     }
 
-    public async Task<ICollection<Tender>> GetTendersAsync()
+    public async Task<IEnumerable<Tender>> GetTendersAsync()
     {
         const int pageSize = 100;
-        const int pagesCountToFetch = 100; // change to 100
+        const int pagesCountToFetch = 100;
         var tenders = new List<Tender>(pageSize * pagesCountToFetch);
         
         for (var pageNumber = 1; pageNumber <= pagesCountToFetch; pageNumber++)

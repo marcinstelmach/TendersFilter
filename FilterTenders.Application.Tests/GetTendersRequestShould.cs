@@ -48,4 +48,18 @@ public class GetTendersRequestShould
         // Assert
         result.Should().Be("PageNumber must be bigger than 0");
     }
+    
+    [Theory]
+    [AutoData]
+    public void ReturnEmptyStringWhenRequestIsCorrect([Range(1, 100)]int pageNumber, [Range(1, 100)]int pageSize)
+    {
+        // Arrange
+        var sut = new GetTendersRequest { PageNumber = pageNumber, PageSize = pageSize, OrderBy = OrderBy.Date, OrderType = OrderType.Desc};
+        
+        // Act
+        var result = sut.Validate();
+        
+        // Assert
+        result.Should().BeEmpty();
+    }
 }

@@ -1,4 +1,4 @@
-@FilterTenders.Api_HostAddress = https://localhost:44371
+@FilterTenders.Api_HostAddress = https://localhost:5046
 
 GET {{FilterTenders.Api_HostAddress}}/api/tenders?
     FilterByPriceInEuro=805.41&

@@ -3,11 +3,11 @@ using FilterTenders.Application.Dtos;
 
 namespace FilterTenders.Application;
 
-public static class Extensions
+public static class OrderingExtensions
 {
     public static IEnumerable<Tender> ApplyOrdering(this IEnumerable<Tender> tenders, GetTendersRequest request)
     {
-        // If we have more parameters to orderby the https://dynamic-linq.net/ could be considered
+        // If we have more parameters to OrderBy the https://dynamic-linq.net/ library could be considered
         return request.OrderType switch
         {
             OrderType.Asc => request.OrderBy switch

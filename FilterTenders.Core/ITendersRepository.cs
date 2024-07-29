@@ -2,5 +2,5 @@
 
 public interface ITendersRepository
 {
-    Task<ICollection<Tender>> GetTendersAsync();
+    Task<IEnumerable<Tender>> GetTendersAsync();
 }
