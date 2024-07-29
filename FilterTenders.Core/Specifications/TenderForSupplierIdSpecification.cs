@@ -3,11 +3,11 @@ using Filters.Tenders.Core.Specifications.BuildingBlocks;
 
 namespace Filters.Tenders.Core.Specifications;
 
-public class TenderForSupplierId : Specification<Tender>
+public class TenderForSupplierIdSpecification : Specification<Tender>
 {
     private readonly int? _supplierId;
 
-    public TenderForSupplierId(int? supplierId)
+    public TenderForSupplierIdSpecification(int? supplierId)
     {
         _supplierId = supplierId;
     }

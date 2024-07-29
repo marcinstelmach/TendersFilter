@@ -4,5 +4,6 @@
     &lt;TestId&gt;xUnit::8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9::net8.0::FilterTenders.Core.Tests.TendersResponseMapperShould&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9::net8.0::FilterTenders.Core.Tests.TendersRepositoryShould.GetTendersFromClient100TimesForSpecificPageNumber&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9::net8.0::FilterTenders.Core.Tests.TendersRepositoryShould.ReturnCorrectAmountOfTenders&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::12049993-D42C-44E4-AB3E-799A203E1400::net8.0::FilterTenders.Application.Tests.TendersServiceShould&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
