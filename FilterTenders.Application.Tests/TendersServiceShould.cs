@@ -1,5 +1,6 @@
 using AutoFixture.Xunit2;
 using Filters.Tenders.Core;
+using FilterTenders.Application.Dtos;
 using FluentAssertions;
 using NSubstitute;
 using Xunit;

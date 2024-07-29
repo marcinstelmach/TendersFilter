@@ -1,4 +1,5 @@
 ﻿using FilterTenders.Application;
+using FilterTenders.Application.Dtos;
 
 namespace FilterTenders.Api.Filters;
 

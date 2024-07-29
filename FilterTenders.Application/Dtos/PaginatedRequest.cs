@@ -10,7 +10,7 @@ public abstract class PaginatedRequest
     {
         if (PageSize < 1)
         {
-            return "PageSize must be bigger that 0";
+            return "PageSize must be bigger than 0";
         }
 
         if (PageNumber < 1)

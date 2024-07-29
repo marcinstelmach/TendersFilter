@@ -10,5 +10,8 @@
     &lt;TestId&gt;xUnit::65DBB2F3-1C8D-4F40-A3DE-D1A872AC4E15::net8.0::FilterTenders.Core.Tests.TenderForIdSpecificationShould&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::65DBB2F3-1C8D-4F40-A3DE-D1A872AC4E15::net8.0::FilterTenders.Core.Tests.TenderForPriceInEuroSpecificationShould&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::65DBB2F3-1C8D-4F40-A3DE-D1A872AC4E15::net8.0::FilterTenders.Core.Tests.TenderForSupplierIdSpecificationShould&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::12049993-D42C-44E4-AB3E-799A203E1400::net8.0::FilterTenders.Application.Tests.GetTendersRequestShould.ReturnErrorWhenOrderTypeWasProvidedWithoutOrderBy&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::12049993-D42C-44E4-AB3E-799A203E1400::net8.0::FilterTenders.Application.Tests.GetTendersRequestShould.ReturnErrorWhenPageSizeIsLowerThanOne&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::12049993-D42C-44E4-AB3E-799A203E1400::net8.0::FilterTenders.Application.Tests.GetTendersRequestShould&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

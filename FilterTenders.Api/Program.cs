@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using FilterTenders.Api;
 using FilterTenders.Api.Filters;
 using FilterTenders.Application;
+using FilterTenders.Application.Dtos;
 using Microsoft.AspNetCore.Http.Json;
 
 var builder = WebApplication.CreateBuilder(args);

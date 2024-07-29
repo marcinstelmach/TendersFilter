@@ -1,6 +1,4 @@
-﻿using FilterTenders.Application.Dtos;
-
-namespace FilterTenders.Application;
+﻿namespace FilterTenders.Application.Dtos;
 
 public class GetTendersRequest : PaginatedRequest
 {
@@ -10,7 +8,7 @@ public class GetTendersRequest : PaginatedRequest
     public int? FilterById { get; init; }
     public int? FilterBySupplierId { get; init; }
 
-    // Order by PriceInEuro | Date | 
+    // Order by
     public OrderBy? OrderBy { get; init; }
     public OrderType? OrderType { get; init; }
 
