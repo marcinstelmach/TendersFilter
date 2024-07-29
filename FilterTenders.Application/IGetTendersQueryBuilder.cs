@@ -6,13 +6,13 @@ namespace FilterTenders.Application;
 
 public interface IGetTendersQueryBuilder
 {
-    public Specification<Tender> BuildTSpecificationForQuery(GetTendersRequest request);
+    public Specification<Tender> BuildSpecificationForQuery(GetTendersRequest request);
     public IEnumerable<Tender> ApplyOrdering(GetTendersRequest request, IEnumerable<Tender> tenders);
 }
 
 public class GetTendersQueryBuilder : IGetTendersQueryBuilder
 {
-    public Specification<Tender> BuildTSpecificationForQuery(GetTendersRequest request)
+    public Specification<Tender> BuildSpecificationForQuery(GetTendersRequest request)
     {
         return new TenderForIdSpecification(request.FilterById)
             .And(new TenderForDateSpecification(request.FilterByDate))

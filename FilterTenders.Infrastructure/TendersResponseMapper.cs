@@ -4,7 +4,7 @@ namespace FilterTenders.Infrastructure;
 
 public static class TendersResponseMapper
 {
-    public static Tender[] ToTenders(this TendersResponse response)
+    public static Tender[] MapToTenders(this TendersResponse response)
     {
         return response.Data.Select(x =>
         {

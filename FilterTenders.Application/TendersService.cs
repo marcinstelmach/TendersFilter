@@ -19,7 +19,7 @@ public class TendersService : ITendersService
         var pageSize = request.PageSize ?? 100;
         var pageNumber = request.PageNumber ?? 1;
         
-        var specification = _getTendersQueryBuilder.BuildTSpecificationForQuery(request);
+        var specification = _getTendersQueryBuilder.BuildSpecificationForQuery(request);
 
         var tenders = (await _tendersRepository.GetTendersAsync())
             .Where(specification.ToExpression().Compile());

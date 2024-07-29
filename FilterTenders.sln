@@ -8,6 +8,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterTenders.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterTenders.Application", "FilterTenders.Application\FilterTenders.Application.csproj", "{BB148C47-7310-4825-997A-B2B7D98A7BDB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{67766029-5273-4510-8C25-E413A8CC5B11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8DB65493-7E4A-4388-B478-DB89E0C84291}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterTenders.Infrastructure.Tests", "FilterTenders.Infrastructure.Tests\FilterTenders.Infrastructure.Tests.csproj", "{8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +36,16 @@ Global
 		{BB148C47-7310-4825-997A-B2B7D98A7BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB148C47-7310-4825-997A-B2B7D98A7BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB148C47-7310-4825-997A-B2B7D98A7BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6FAACFD0-3430-4827-B32C-C91019B3F628} = {67766029-5273-4510-8C25-E413A8CC5B11}
+		{BB148C47-7310-4825-997A-B2B7D98A7BDB} = {67766029-5273-4510-8C25-E413A8CC5B11}
+		{EB394F3C-1642-4A99-93B9-8305486C1E77} = {67766029-5273-4510-8C25-E413A8CC5B11}
+		{B332DB7C-9852-48A2-9EFB-A6A8FEAE8057} = {67766029-5273-4510-8C25-E413A8CC5B11}
+		{8E9E98D2-F1F9-455C-BE6A-9DDD85E2EAF9} = {8DB65493-7E4A-4388-B478-DB89E0C84291}
 	EndGlobalSection
 EndGlobal

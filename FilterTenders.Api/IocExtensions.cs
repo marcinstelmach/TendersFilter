@@ -24,6 +24,7 @@ public static class IocExtensions
 
     public static IServiceCollection AddDependencies(this IServiceCollection services)
     {
+        services.AddScoped<ITendersClient, TendersClient>();
         services.AddScoped<ITendersRepository, TendersRepository>();
         services.AddTransient<ITendersService, TendersService>();
         services.AddTransient<IGetTendersQueryBuilder, GetTendersQueryBuilder>();
